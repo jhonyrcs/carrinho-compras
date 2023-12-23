@@ -221,7 +221,9 @@ input[type="number"] {
   font-size: 1.3125rem;
   font-style: italic;
   font-weight: 400;
-  line-height: 110%; /* 1.44375rem */
+  line-height: 110%;
+  display: flex; /* Adiciona um display flex para alinhar os elementos na mesma linha */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
 }
 
 .divisoria {
@@ -238,4 +240,21 @@ input[type="number"] {
 
 .adicionar-produto {
   padding-bottom: 180px;
+}
+
+.botao-remover {
+  background-color: #ffffff; /* Branco */
+  color: #1875E8; /* Cor azul */
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.botao-remover img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
 }

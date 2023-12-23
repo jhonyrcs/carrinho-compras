@@ -56,9 +56,15 @@
       </div>
 
       <section class="carrinho__produtos" id="lista-produtos">
+
         <section class="carrinho__produtos__produto">
-          <span class="texto-azul">1x</span> Celular <span class="texto-azul">R$1400</span>
+          <span class="texto-azul">${item.quantidade}x</span> ${nomeProduto} <span class="texto-azul">R$ ${valorAgregado.toFixed(2)}</span>
+          <button class="botao-remover" onclick="removerProduto('${nomeProduto}')">
+              <img src="./assets/lixeira.png" alt="Remover">
+          </button>
         </section>
+            
+            
       </section>
 
       <div class="divisoria"></div>

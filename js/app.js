@@ -51,8 +51,11 @@ function atualizarCarrinhoHTML() {
         let valorAgregado = item.quantidade * item.valorPorProduto;
 
         carrinho.innerHTML += `<section class="carrinho__produtos__produto">
-            <span class="texto-azul">${item.quantidade}x</span> ${nomeProduto} <span class="texto-azul">R$ ${valorAgregado.toFixed(2)}</span>
-        </section>`;
+        <span class="texto-azul">${item.quantidade}x</span> ${nomeProduto} <span class="texto-azul">R$ ${valorAgregado.toFixed(2)}</span>
+        <button class="botao-remover" onclick="removerProduto('${nomeProduto}')">
+            <img src="./assets/lixeira.png" alt="Remover">
+        </button>
+    </section>`;
     }
 
     // Atualizar o valor total
@@ -76,4 +79,25 @@ function limpar() {
     carrinhoItens = {};
     document.getElementById('lista-produtos').innerHTML = '';
     document.getElementById('valor-total').textContent = 'R$ 0';
+}
+
+
+function removerProduto(nomeProduto) {
+    if (carrinhoItens[nomeProduto]) {
+        // Reduzir a quantidade do produto no carrinho
+        carrinhoItens[nomeProduto].quantidade--;
+
+        // Se a quantidade for zero, remover completamente o produto
+        if (carrinhoItens[nomeProduto].quantidade <= 0) {
+            delete carrinhoItens[nomeProduto];
+        }
+
+        // Atualizar o HTML do carrinho
+        atualizarCarrinhoHTML();
+
+        // Atualizar o valor total
+        valorTotal = calcularValorTotal();
+        let campoValorTotal = document.getElementById('valor-total');
+        campoValorTotal.textContent = `R$ ${valorTotal.toFixed(2)}`;
+    }
 }
